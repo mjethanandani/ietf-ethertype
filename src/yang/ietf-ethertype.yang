@@ -1,0 +1,121 @@
+module ietf-ethertype {
+  namespace "urn:ietf:params:xml:ns:yang:ietf-ethertypes";
+  prefix ie;
+  
+  organization
+    "IETF OPSAWG (Operations Area Working Group)";
+  
+  contact
+    "WG Web:   <http://tools.ietf.org/wg/opsawg/>
+     WG List:  <mailto:opsawg@ietf.org>
+
+     Editor:   Mahesh Jethanandani
+               <mjethanandani@gmail.com>";
+  
+  description
+    "This module contains the common definitions for the
+     Ethertype used by different modules. It is a
+     placeholder module, till such time that IEEE
+     starts a project to define these Ethertypes
+     and publishes a standard.
+     
+     At that time this module can be deprecated.";
+  
+  revision YYYY-MM-DD {
+    description
+      "Initial revision.";
+    reference
+      "RFC XXXX: IETF Ethertype YANG Data Module.";
+  }
+  
+  typedef ethertype {
+    type union {
+      type uint16 {
+        description
+          "This placeholder type is defined to enable
+           users to manage their own ethertypes not
+           covered by the module.";
+      }
+      type enumeration {
+        enum ipv4 {
+          value 2048;
+          description
+            "Internet Protocol version 4 (IPv4) with a
+             hex value of 0x0800.";
+          reference
+            "RFC 791, Internet Protocol.";
+        }
+        enum arp {
+          value 2054;
+          description
+            "Address Resolution Protocol (ARP) with a
+             hex value of 0x0806.";
+          reference
+            "RFC 826 An Ethernet Address Resolution Protocol.";
+        }
+        enum wlan {
+          value 2114;
+          description
+            "Wake-on-LAN. Hex value of 0x0842.";
+        }
+        enum trill {
+          value 8947;
+          description
+            "TRansparent Interconnection of Lots of Links.
+             Hex value of 0x22F3.";
+          reference
+            "RFC 6325 Routing Bridges (RBridges): Base Protocol
+             Specification."
+        }
+        enum srp {
+          value 8938;
+          description
+            "Stream Reservation Protocol. Hex value of
+             0x22EA.";
+          reference
+            "IEEE 801.1Q-2011.";
+        }
+        enum decnet {
+          value 24579;
+          description
+            "DECnet Phase IV. Hex value of 0x6003.";
+        }
+        enum rarp {
+          value 32821;
+          definition
+            "Reverse Address Resolution Protocol.
+             Hex value 0x8035.";
+          reference
+        	"RFC 903. A Reverse Address Resolution Protocol.";
+        }
+        enum appletalk {
+          value 32923;
+          definition
+            "Appletalk (Ethertalk). Hex value 0x809B.";
+        }
+        enum aarp {
+          value 33011;
+          description
+            "Appletalk Address Resolution Protocol. Hex value
+             of 0x80F3.";
+        }
+        enum vlan {
+          value 33024;
+          description
+            "VLAN-tagged frame (802.1Q) and Shortest Path
+             Bridging IEEE 802.1aq with NNI compatibility.
+             Hex value 0x8100.";
+          reference
+        	"802.1Q.";
+             
+        }
+        enum ipx {
+          value 33079;
+          description
+            "Internetwork Packet Exchange (IPX). Hex value
+             of 0x8137.";
+        }
+      }
+    }
+  }
+}
